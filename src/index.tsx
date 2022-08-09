@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
-import NavBar from './components/NavBar/NavBar';
 import Detail from './pages/Detail';
 import Home from './pages/Home';
 import './index.css';
@@ -13,7 +12,6 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <Router>
-      <NavBar />
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/details" element={<Detail/>} />

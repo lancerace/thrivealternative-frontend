@@ -124,7 +124,7 @@ function Home() {
               <Grid key={index} item md={2} container className={style.countryContainer} style={{ border: "0px solid red", marginBottom: "10vh", marginRight: "5vh", marginLeft: "5vh" }}
                 onClick={() => {
                   //window.location.href = `${window.location.origin}/details`;
-                  navigate("/details",{state:country});
+                  navigate("/details",{state: {country: country}});
                 }}>
 
                 <Grid item md={12} style={{ border: "0px solid red", height: "20vh" }}>

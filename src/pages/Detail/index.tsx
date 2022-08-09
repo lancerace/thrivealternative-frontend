@@ -37,7 +37,8 @@ interface ICountry {
 }
 function Detail() {
   const location: any = useLocation();
-  const country: ICountry = location.state;
+  console.log(location);
+  const country: ICountry = location.state.country;
   console.log(country);
   /*const [state,setState] = useState<ICountry>(country);
   
@@ -72,7 +73,7 @@ function Detail() {
       <Grid item md={10} lg={10} style={{ border: "0px solid blue", height: "auto" }} container justifyContent="center">
 
         <Grid item md={6} lg={6} style={{ border: "0px solid red" }}>
-          <img src={country.flags.svg} style={{ maxHeight: "100%", maxWidth: "100%", objectFit: "cover" }} alt={country.name.common} />
+          <img src={country?.flags.svg || ""} style={{ maxHeight: "100%", maxWidth: "100%", objectFit: "cover" }} alt={country.name.common} />
         </Grid>
 
         {/**right side description */}
@@ -101,7 +102,7 @@ function Detail() {
           <Grid item md={12} lg={12}>
             <b>Border countries: </b> {
               country.borders.map((item, index) => {
-                return (<Button variant="contained" style={{ backgroundColor: "white", color: "black", width: "10vh", marginRight: "2vh" }}>{item}</Button>)
+                return (<Button variant="contained" key={index} style={{ backgroundColor: "white", color: "black", width: "10vh", marginRight: "2vh" }}>{item}</Button>)
               })
             }
           </Grid>
