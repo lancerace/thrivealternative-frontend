@@ -2,6 +2,10 @@
 
 project is hosted at URL: https://thrivealternative.web.app
 
+- Search functionality working
+- Dropdown working
+- Grid system from react material ui used.
+
 
 ## Available Scripts
 
