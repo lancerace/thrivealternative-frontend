@@ -4,6 +4,7 @@ import NavBar from '../../components/NavBar/NavBar';
 import { Grid, Input, InputAdornment, MenuItem, Select } from '@mui/material';
 import axios from 'axios';
 import SearchIcon from '@mui/icons-material/Search';
+import { useNavigate } from "react-router-dom";
 interface IState {
   countries: ICountry[];
   region: string;
@@ -25,14 +26,14 @@ interface ICountry {
 function Home() {
 
   const [state, setState] = useState<IState>({ countries: [], region: "" });
-
+  let navigate = useNavigate();
 
 
   const fetchCountries = async () => {
 
-      const { data } = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/all`);
-      //take 10 elements just for an example. 
-      setState({ ...state, countries: data.slice(1, 13) })
+    const { data } = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/all`);
+    //take 10 elements just for an example. 
+    setState({ ...state, countries: data.slice(1, 13) })
   };
 
   const fetchCountriesByRegion = async () => {
@@ -53,7 +54,7 @@ function Home() {
 
   };
 
-  
+
 
 
   useEffect(() => {
@@ -66,14 +67,14 @@ function Home() {
   }, [state.region])
 
   return (
-    <Grid container style={{ border: "0px solid red" }} justifyContent="center">
+    <Grid container style={{ border: "0px solid red", backgroundColor: "#fafafa" }} justifyContent="center">
       <Grid container>
         <NavBar hoverColor="blue">
           <NavBar.Item to="/"><b>Where in the world?</b></NavBar.Item>
           {/* <NavBar.Item to="/Services">Services</NavBar.Item>
               <NavBar.Item to="/Pricing">Pricing</NavBar.Item>
               <NavBar.Item to="/Login">Log In</NavBar.Item>*/}
-          <NavBar.Item to="/Signup"><span style={{fontSize:"15px"}}>Dark mode</span></NavBar.Item>
+          <NavBar.Item to="/Signup"><span style={{ fontSize: "15px" }}>Dark mode</span></NavBar.Item>
         </NavBar>
       </Grid>
 
@@ -119,12 +120,15 @@ function Home() {
         {
           state.countries.map((country, index) => {
             return (
-
               /** use index as key just for this challenge. but ideally using uid for production*/
-              <Grid key={index} item md={2} container className={style.countryContainer} style={{ border: "0px solid red", marginBottom: "10vh", marginRight:"5vh", marginLeft:"5vh" }}>
+              <Grid key={index} item md={2} container className={style.countryContainer} style={{ border: "0px solid red", marginBottom: "10vh", marginRight: "5vh", marginLeft: "5vh" }}
+                onClick={() => {
+                  //window.location.href = `${window.location.origin}/details`;
+                  navigate("/details",{state:country});
+                }}>
 
                 <Grid item md={12} style={{ border: "0px solid red", height: "20vh" }}>
-                  <img src={country.flags.svg} style={{ maxHeight: "100%", maxWidth:"100%", objectFit: "cover" }} alt={country.name.common} />
+                  <img src={country.flags.svg} style={{ maxHeight: "100%", maxWidth: "100%", objectFit: "cover" }} alt={country.name.common} />
                 </Grid>
 
                 <Grid container style={{ border: "0px solid green" }} className={style.descriptionContainer}>
