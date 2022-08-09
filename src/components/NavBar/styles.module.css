@@ -1,0 +1,37 @@
+.root {
+  padding:0;
+  margin:0;
+  list-style: none;
+  background-color:white;
+  width:100%;
+  display: flex;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2), 0 0px 0px 0 rgba(0, 0, 0, 0.19);
+  font-family: Roboto,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-size: 20px;
+  font-weight:400;
+}
+.root> li> a{
+  color:black;
+}
+
+.root > li > a:hover {
+  color: red;
+}
+:global(.li--Blue) > li > a:hover{
+  color: blue;
+}
+.root > li {
+  padding:5vh;
+}
+/*
+.root > li:nth-child(2){
+  margin-right:auto;
+}*/
+
+.root > li:nth-child(1){
+  margin-right:auto;
+}
+
+
+
+
