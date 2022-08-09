@@ -38,15 +38,17 @@ function Home() {
   const fetchCountriesByRegion = async () => {
     const { data } = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/region/${state.region}`);
     //take 10 elements just for an example. 
-    setState({ ...state, countries: data.slice(1, 13) })
+    setState({ ...state, countries: data })
 
   };
 
   const fetchCountriesByName = async (name: string) => {
     if (name.length > 0) {
+      console.log(name);
       const { data } = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/name/${name}`);
+      console.log(data);
       //take 10 elements just for an example. 
-      setState({ ...state, countries: data.slice(1, 13) })
+      setState({ ...state, countries: data })
     }
 
   };
