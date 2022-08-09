@@ -69,11 +69,11 @@ function Home() {
     <Grid container style={{ border: "0px solid red" }} justifyContent="center">
       <Grid container>
         <NavBar hoverColor="blue">
-          <NavBar.Item to="/">Where in the world?</NavBar.Item>
+          <NavBar.Item to="/"><b>Where in the world?</b></NavBar.Item>
           {/* <NavBar.Item to="/Services">Services</NavBar.Item>
               <NavBar.Item to="/Pricing">Pricing</NavBar.Item>
               <NavBar.Item to="/Login">Log In</NavBar.Item>*/}
-          <NavBar.Item to="/Signup">Dark mode</NavBar.Item>
+          <NavBar.Item to="/Signup"><span style={{fontSize:"15px"}}>Dark mode</span></NavBar.Item>
         </NavBar>
       </Grid>
 
@@ -115,16 +115,16 @@ function Home() {
 
 
       {/**list of countries */}
-      <Grid item md={10} style={{ border: "0px solid blue", height: "auto" }} container>
+      <Grid item md={10} style={{ border: "0px solid blue", height: "auto" }} container justifyContent="center">
         {
           state.countries.map((country, index) => {
             return (
 
               /** use index as key just for this challenge. but ideally using uid for production*/
-              <Grid key={index} item md={3} container className={style.countryContainer} style={{ border: "0px solid red", marginBottom: "10vh" }}>
+              <Grid key={index} item md={2} container className={style.countryContainer} style={{ border: "0px solid red", marginBottom: "10vh", marginRight:"5vh", marginLeft:"5vh" }}>
 
                 <Grid item md={12} style={{ border: "0px solid red", height: "20vh" }}>
-                  <img src={country.flags.svg} style={{ maxHeight: "100%", objectFit: "contain" }} alt={country.name.common} />
+                  <img src={country.flags.svg} style={{ maxHeight: "100%", maxWidth:"100%", objectFit: "cover" }} alt={country.name.common} />
                 </Grid>
 
                 <Grid container style={{ border: "0px solid green" }} className={style.descriptionContainer}>
