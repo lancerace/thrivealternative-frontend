@@ -1,10 +1,14 @@
 # Getting Started with Create React App
 
+**Comments: Project contains inline style for convenient purposes, used for this challenge. In practices, css preprocessor approach such as css modules or other should be used.**
+
 project is hosted at URL: https://thrivealternative.web.app
 
 - Search functionality working
 - Dropdown working
 - Grid system from react material ui used.
+- CSS approach using css module BEM.
+
 
 
 ## Available Scripts
